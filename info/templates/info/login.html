@@ -21,11 +21,23 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static '/info/bootstrap/css/sb-admin.css' %}" rel="stylesheet">
+    <style>
+       .bitlogo{
+          display:flex;
+          justify-content: center;
+          padding: 50px;
+       }
+       .contributors{
+         background-color: white;
+       }
+    </style>
 
   </head>
 
   <body class="bg-dark">
-
+    <div class="bitlogo">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Birla_Institute_of_Technology_Mesra.png/220px-Birla_Institute_of_Technology_Mesra.png" alt="">
+    </div>
     <div class="container">
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
@@ -38,6 +50,9 @@
 
         </div>
       </div>
+    </div>
+    <div class="contributors">
+          <h1>Contributors</h1>
     </div>
 
     <!-- Bootstrap core JavaScript-->
