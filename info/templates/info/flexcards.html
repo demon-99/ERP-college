@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/info/homepage/css/flexcards.css' %}" type="text/css">
+</head>
+<body>
+    
+    <div class="ccon">
+        <h1>Contributors</h1>
+        <div class="cards">
+          <div class="card-item">
+            <div class="card-image">
+                <img src="{% static 'info/images/nikhil.jpg' %}">
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Nikhil kumar</h2>
+              <p class="card-intro">BTECh/15092/18</p>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card-item">
+            <div class="card-image">
+                <img src="{% static 'info/images/rishav.jpeg' %}">
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">kumar rishav</h2>
+              <p class="card-intro">BTECH/15326/18</p>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card-item">
+            <div class="card-image">
+                <img src="{% static 'info/images/ishan.jpeg' %}">
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Ishan prasad</h2>
+              <p class="card-intro">BTECH/15218/18</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+          images = [
+  "https://drive.google.com/file/d/170-D57YciW26TQhPH5xQUMr1yNBPfs5b/view?usp=sharing",
+  "https://source.unsplash.com/featured/?hiking",
+  "https://source.unsplash.com/featured/?kayak",
+]
+
+$('div.card-image').each ->
+  random_image_index = Math.floor(images.length * Math.random())
+  $(this).css('background-image', 'url(' + images[random_image_index] + ')')
+      </script>
+</body>

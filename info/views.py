@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from .models import Dept, Class, Student, Attendance, Course, Teacher, Assign, AttendanceTotal, time_slots, \
+from .models import Dept, Class, Student, Attendance, Course, Teacher, Assign, AttendanceTotal, time_slots,  \
     DAYS_OF_WEEK, AssignTime, AttendanceClass, StudentCourse, Marks, MarksClass
 from django.urls import reverse
 from django.utils import timezone
@@ -195,15 +195,15 @@ def t_report(request, assign_id):
 @login_required()
 def timetable(request, class_id):
     asst = AssignTime.objects.filter(assign__class_id=class_id)
-    matrix = [['' for i in range(12)] for j in range(6)]
+    matrix = [['' for i in range(9)] for j in range(6)]
 
     for i, d in enumerate(DAYS_OF_WEEK):
         t = 0
-        for j in range(12):
+        for j in range(9):
             if j == 0:
                 matrix[i][0] = d[0]
                 continue
-            if j == 4 or j == 8:
+            if j == 5:
                 continue
             try:
                 a = asst.get(period=time_slots[t][0], day=d[0])
@@ -219,22 +219,21 @@ def timetable(request, class_id):
 @login_required()
 def t_timetable(request, teacher_id):
     asst = AssignTime.objects.filter(assign__teacher_id=teacher_id)
-    class_matrix = [[True for i in range(12)] for j in range(6)]
+    class_matrix = [[True for i in range(9)] for j in range(6)]
     for i, d in enumerate(DAYS_OF_WEEK):
         t = 0
-        for j in range(12):
+        for j in range(9):
             if j == 0:
                 class_matrix[i][0] = d[0]
                 continue
-            if j == 4 or j == 8:
+            if j == 5:
                 continue
             try:
-                a = asst.get(period=time_slots[t][0], day=d[0])
-                class_matrix[i][j] = a
+               a = asst.get(period=time_slots[t][0], day=d[0])
+               class_matrix[i][j] = a
             except AssignTime.DoesNotExist:
-                pass
+               pass
             t += 1
-
     context = {
         'class_matrix': class_matrix,
     }

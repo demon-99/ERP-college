@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,9 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="contributors">
-          <h1>Contributors</h1>
-    </div>
+    {% include "info/flexcards.html" %}
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static '/info/bootstrap/vendor/jquery/jquery.min.js' %}"></script>

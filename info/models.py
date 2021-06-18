@@ -12,15 +12,13 @@ sex_choice = (
 )
 
 time_slots = (
-    ('7:30 - 8:30', '7:30 - 8:30'),
-    ('8:30 - 9:30', '8:30 - 9:30'),
-    ('9:30 - 10:30', '9:30 - 10:30'),
-    ('11:00 - 11:50', '11:00 - 11:50'),
-    ('11:50 - 12:40', '11:50 - 12:40'),
-    ('12:40 - 1:30', '12:40 - 1:30'),
-    ('2:30 - 3:30', '2:30 - 3:30'),
-    ('3:30 - 4:30', '3:30 - 4:30'),
-    ('4:30 - 5:30', '4:30 - 5:30'),
+    ('9:00 - 10:00', '9:00 - 10:00'),
+    ('10:00 - 11:00', '10:00 - 11:00'),
+    ('11:00 - 12:00', '11:00 - 12:00'),
+    ('12:00 - 1:00', '12:00 - 1:00'),
+    ('2:00 - 3:00', '2:00 - 3:00'),
+    ('3:00 - 4:00', '3:00 - 4:00'),
+    ('4:00 - 5:00', '4:00 - 5:00'),
 )
 
 DAYS_OF_WEEK = (
@@ -130,7 +128,7 @@ class Assign(models.Model):
 
 class AssignTime(models.Model):
     assign = models.ForeignKey(Assign, on_delete=models.CASCADE)
-    period = models.CharField(max_length=50, choices=time_slots, default='11:00 - 11:50')
+    period = models.CharField(max_length=50, choices=time_slots, default='9:00 - 10:00')
     day = models.CharField(max_length=15, choices=DAYS_OF_WEEK)
 
 
